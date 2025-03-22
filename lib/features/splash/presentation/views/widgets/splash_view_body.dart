@@ -3,7 +3,6 @@ import 'package:book_store/features/home/presentation/views/home_view.dart';
 import 'package:book_store/features/splash/presentation/views/widgets/sliding_text_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../../constants.dart';
 
@@ -22,7 +21,11 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
   void initState() {
     super.initState();
     initSlidingAnimation();
-    Future.delayed(const Duration(seconds: 4),() {
+    navigateToHomeScreen();
+  }
+
+  void navigateToHomeScreen() {
+     Future.delayed(const Duration(seconds: 4),() {
       Get.to( () => const HomeView() , transition: Transition.rightToLeftWithFade,duration: kTransitionDuration);
     },);
   }
