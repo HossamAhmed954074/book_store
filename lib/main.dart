@@ -1,9 +1,6 @@
+import 'package:book_store/core/router/app_router.dart';
 import 'package:book_store/core/theme/app_theme.dart';
-import 'package:book_store/features/splash/presentation/views/screens/splash_view.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-
-
 
 
 void main() {
@@ -15,10 +12,12 @@ class BooklyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.darkAppTheme,
-      home: SplashView(),
+      routerConfig: AppRouter.router,
     );
   }
 }
+
+
