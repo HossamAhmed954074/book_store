@@ -1,8 +1,8 @@
 import 'package:book_store/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
-class FeaturedCustomListViewItem extends StatelessWidget {
-  const FeaturedCustomListViewItem({super.key});
+class CustomBookImage extends StatelessWidget {
+  const CustomBookImage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +11,7 @@ class FeaturedCustomListViewItem extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.only(left: 10),
         decoration: BoxDecoration(
+          color: Colors.white,
           borderRadius: BorderRadius.circular(16),
           image: DecorationImage(
             image: AssetImage(AssetsData.testImage),
