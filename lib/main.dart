@@ -1,9 +1,10 @@
-import 'package:book_store/features/splash/presentation/views/splash_view.dart';
+import 'package:book_store/core/theme/app_theme.dart';
+import 'package:book_store/features/splash/presentation/views/screens/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-import 'constants.dart';
+
+
 
 void main() {
   runApp(const BooklyApp());
@@ -16,11 +17,7 @@ class BooklyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: kPrimaryColor,
-        textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme)
-      ),
-
+      theme: AppTheme.darkAppTheme,
       home: SplashView(),
     );
   }
