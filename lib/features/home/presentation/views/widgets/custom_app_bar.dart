@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key, required this.onPressdSearch});
-final Function() onPressdSearch;
+  final Function() onPressdSearch;
   @override
   Widget build(BuildContext context) {
     return Padding(

@@ -4,7 +4,6 @@ import 'package:book_store/features/splash/presentation/views/widgets/sliding_te
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
 

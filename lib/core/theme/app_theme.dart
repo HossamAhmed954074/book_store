@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static final darkAppTheme = ThemeData.dark().copyWith(
-   scaffoldBackgroundColor: kPrimaryColor,
-        textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme)
+    scaffoldBackgroundColor: kPrimaryColor,
+    textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
   );
 }

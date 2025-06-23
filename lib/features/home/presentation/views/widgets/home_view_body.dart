@@ -52,4 +52,3 @@ class HomeViewBody extends StatelessWidget {
     //isClickSearch == true ? FloatingSearchBarCustom() : SizedBox(),
   }
 }
-

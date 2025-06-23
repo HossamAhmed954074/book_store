@@ -16,7 +16,6 @@ abstract class AppRouter {
         path: detailsRoute,
         builder: (context, state) => const BookDetailsView(),
       ),
-     
     ],
   );
 }
