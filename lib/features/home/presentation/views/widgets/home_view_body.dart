@@ -2,6 +2,7 @@ import 'package:book_store/core/utils/text_styles.dart';
 import 'package:book_store/features/home/presentation/views/widgets/best_seller_item.dart';
 import 'package:book_store/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:book_store/features/home/presentation/views/widgets/custom_featured_list_view.dart';
+import 'package:book_store/features/home/presentation/views/widgets/search_delgate.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -11,7 +12,11 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomAppBar(),
+        CustomAppBar(
+          onPressdSearch: () {
+            showSearch(context: context, delegate: MySearchDelegate());
+          },
+        ),
         Expanded(
           child: CustomScrollView(
             slivers: [
@@ -21,7 +26,7 @@ class HomeViewBody extends StatelessWidget {
                   children: [
                     FeaturedBooksListView(),
                     Padding(
-                      padding: const EdgeInsets.only(left: 10,top: 10),
+                      padding: const EdgeInsets.only(left: 10, top: 10),
                       child: Text(
                         'Best Seller',
                         style: TextStyles.textStyle18.copyWith(
@@ -44,5 +49,7 @@ class HomeViewBody extends StatelessWidget {
         ),
       ],
     );
+    //isClickSearch == true ? FloatingSearchBarCustom() : SizedBox(),
   }
 }
+
