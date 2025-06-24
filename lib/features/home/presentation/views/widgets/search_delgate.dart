@@ -28,6 +28,7 @@ class MySearchDelegate extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
+    // ignore: unused_local_variable
     List<String> suggestions = [
       'History',
       'Fantasy',
