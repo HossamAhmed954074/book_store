@@ -14,8 +14,12 @@ class BookPriceAndRatingItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          bookModel.saleInfo!.saleability!.contains('NOT_FOR_SALE') ? '0 \$' :  '${bookModel.saleInfo!.listPrice!.amount} \$',
-         
+          bookModel.saleInfo!.saleability!.contains('NOT_FOR_SALE')
+              ? '0.0 \$'
+              : bookModel.saleInfo?.listPrice == null
+                  ? 'Free'
+                  : '${bookModel.saleInfo!.listPrice!.amount} \$',
+
           style: TextStyles.textStyle20.copyWith(fontWeight: FontWeight.bold),
         ),
 
@@ -23,7 +27,8 @@ class BookPriceAndRatingItem extends StatelessWidget {
           children: [
             Icon(FontAwesomeIcons.solidStar, color: Colors.yellow, size: 14),
             SizedBox(width: 6.3),
-            Text('4.5', style: TextStyles.textStyle16),
+            Text(bookModel.volumeInfo.maturityRating!,
+                 style: TextStyles.textStyle16),
             SizedBox(width: 5),
             Text(
               '(200)',

@@ -1,4 +1,3 @@
-import 'package:book_store/features/home/presentation/views/widgets/best_seller_item.dart';
 import 'package:flutter/material.dart';
 
 class MySearchDelegate extends SearchDelegate {

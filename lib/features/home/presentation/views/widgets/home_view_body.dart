@@ -22,6 +22,7 @@ class HomeViewBody extends StatelessWidget {
         ),
         Expanded(
           child: CustomScrollView(
+            physics: const BouncingScrollPhysics(),
             slivers: [
               SliverToBoxAdapter(
                 child: Column(
@@ -45,6 +46,7 @@ class HomeViewBody extends StatelessWidget {
                 builder: (context, state) {
                   if (state is NewestBooksLoaded) {
                     return SliverList(
+                      
                       delegate: SliverChildBuilderDelegate(
                         (context, index) =>
                             BestSellerItem(bookModel: state.books[index]),

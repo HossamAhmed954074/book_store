@@ -8,7 +8,6 @@ class BookTextDetails extends StatelessWidget {
 
   final BookModel bookModel;
 
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,15 +18,24 @@ class BookTextDetails extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 4),
-        for(int i = 0; i < bookModel.volumeInfo.authors!.length; i++)
-        Text(
-          bookModel.volumeInfo.authors![i],
-          style: TextStyles.textStyle16.copyWith(fontStyle: FontStyle.italic),
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 10),
-         Text(
+        bookModel.volumeInfo.authors != null &&
+                bookModel.volumeInfo.authors!.isNotEmpty
+            ? Wrap(
+              children: [
+                for (int i = 0; i < bookModel.volumeInfo.authors!.length; i++)
+                  Text(
+                    bookModel.volumeInfo.authors![i],
+                    style: TextStyles.textStyle16.copyWith(
+                      fontStyle: FontStyle.italic,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+              ],
+            )
+            : SizedBox(),
 
+        const SizedBox(height: 10),
+        Text(
           bookModel.volumeInfo.description ?? 'No Description',
           style: TextStyles.textStyle14,
           textAlign: TextAlign.center,

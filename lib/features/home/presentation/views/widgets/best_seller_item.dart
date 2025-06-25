@@ -66,8 +66,9 @@ class BestSellerItem extends StatelessWidget {
                         style: TextStyles.textStyle20,
                       ),
                     ),
+                    
                     Text(
-                      bookModel.volumeInfo.authors![0],
+                      '${bookModel.volumeInfo.authors![0]} ',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyles.textStyle14.copyWith(
