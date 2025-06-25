@@ -1,9 +1,12 @@
 import 'package:book_store/core/utils/text_styles.dart';
+import 'package:book_store/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BookPriceAndRatingItem extends StatelessWidget {
-  const BookPriceAndRatingItem({super.key});
+  const BookPriceAndRatingItem({super.key, required this.bookModel});
+
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +14,8 @@ class BookPriceAndRatingItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          '19.99 \$',
+          bookModel.saleInfo!.saleability!.contains('NOT_FOR_SALE') ? '0 \$' :  '${bookModel.saleInfo!.listPrice!.amount} \$',
+         
           style: TextStyles.textStyle20.copyWith(fontWeight: FontWeight.bold),
         ),
 

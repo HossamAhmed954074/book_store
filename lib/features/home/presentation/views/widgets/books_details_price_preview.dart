@@ -1,8 +1,10 @@
 import 'package:book_store/core/utils/text_styles.dart';
+import 'package:book_store/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsPriceAndPreview extends StatelessWidget {
-  const BookDetailsPriceAndPreview({super.key});
+  const BookDetailsPriceAndPreview({super.key, required this.bookModel});
+ final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,10 @@ class BookDetailsPriceAndPreview extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      '19.99 \$',
+                      bookModel.saleInfo?.listPrice?.amount == null
+                          ? 'Free'
+                          :
+                      '${bookModel.saleInfo!.listPrice!.amount} \$',
                       style: TextStyles.textStyle18.copyWith(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,

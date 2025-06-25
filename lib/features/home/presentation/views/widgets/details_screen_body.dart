@@ -1,15 +1,23 @@
+import 'dart:math';
+
 import 'package:book_store/core/utils/text_styles.dart';
+import 'package:book_store/core/widgets/error_custom_widget.dart';
+import 'package:book_store/features/home/data/models/book_model/book_model.dart';
+import 'package:book_store/features/home/presentation/view_model/featured_books_cubit/cubit/featured_books_cubit.dart';
 import 'package:book_store/features/home/presentation/views/widgets/books_details_price_preview.dart';
 import 'package:book_store/features/home/presentation/views/widgets/books_details_text.dart';
 import 'package:book_store/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:book_store/features/home/presentation/views/widgets/custom_details_header.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class DetailsScreenBody extends StatelessWidget {
   const DetailsScreenBody({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var bookModel = GoRouter.of(context).state.extra as BookModel;
     return Column(
       children: [
         const CustomDetailsHeader(),
@@ -30,11 +38,11 @@ class DetailsScreenBody extends StatelessWidget {
                               horizontal:
                                   MediaQuery.of(context).size.width * 0.18,
                             ),
-                            child: const CustomBookImage(),
+                            child: CustomBookImage(bookModel: bookModel),
                           ), // Placeholder image
                           const SizedBox(height: 10),
-                          const BookTextDetails(),
-                          BookDetailsPriceAndPreview(),
+                           BookTextDetails(bookModel: bookModel,),
+                          BookDetailsPriceAndPreview(bookModel: bookModel,),
                           const SizedBox(height: 20),
                         ],
                       ),
@@ -65,12 +73,34 @@ class DetailsScreenBody extends StatelessWidget {
                             SizedBox(height: 10),
                             Expanded(
                               flex: 5,
-                              child: ListView.builder(
-                                padding: EdgeInsets.zero,
-                                scrollDirection: Axis.horizontal,
-                                itemCount: 10, // Example item count
-                                itemBuilder: (context, index) {
-                                  return const CustomBookImage(); // Placeholder for book image
+                              child: BlocBuilder<
+                                FeaturedBooksCubit,
+                                FeaturedBooksState
+                              >(
+                                builder: (context, state) {
+
+                                  if (state is FeaturedBooksLoaded) {
+                                    return ListView.builder(
+                                      padding: EdgeInsets.zero,
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount:
+                                          state
+                                              .books
+                                              .length, // Example item count
+                                      itemBuilder: (context, index) {
+                                        return CustomBookImage(
+                                          bookModel: state.books[index],
+                                        ); // Placeholder for book image
+                                      },
+                                    );
+                                  }else if(state is FeaturedBooksError){
+                                     return ErrorCustomWidget(errorMessage: state.message);
+                                  }
+                                   else {
+                                    return Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  }
                                 },
                               ),
                             ),

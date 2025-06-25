@@ -18,12 +18,12 @@ class HomeView extends StatelessWidget {
             BlocProvider(
               create:
                   (context) =>
-                      FeaturedBooksCubit(getIt.get<HomeRepoImplement>()),
+                      FeaturedBooksCubit(getIt.get<HomeRepoImplement>())..fetchFeaturedBooks(),
             ),
             BlocProvider(
               create:
                   (context) =>
-                      NewestBooksCubit(getIt.get<HomeRepoImplement>()),
+                      NewestBooksCubit(getIt.get<HomeRepoImplement>())..fetchNewestBooks(),
             ),
           ],
 

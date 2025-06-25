@@ -1,29 +1,38 @@
 import 'package:book_store/core/utils/text_styles.dart';
+import 'package:book_store/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BookTextDetails extends StatelessWidget {
-  const BookTextDetails({super.key});
+  const BookTextDetails({super.key, required this.bookModel});
+
+  final BookModel bookModel;
+
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Text(
-          'Book Title',
+          bookModel.volumeInfo.title!,
           style: TextStyles.textStyle20.copyWith(fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 4),
+        for(int i = 0; i < bookModel.volumeInfo.authors!.length; i++)
         Text(
-          'Author Name',
+          bookModel.volumeInfo.authors![i],
           style: TextStyles.textStyle16.copyWith(fontStyle: FontStyle.italic),
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 10),
-        const Text(
-          'This is a brief description of the book. It provides an overview of the content and themes.',
+         Text(
+
+          bookModel.volumeInfo.description ?? 'No Description',
+          style: TextStyles.textStyle14,
           textAlign: TextAlign.center,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
         ),
         const SizedBox(height: 10),
         Row(

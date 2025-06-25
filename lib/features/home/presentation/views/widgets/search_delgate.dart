@@ -55,7 +55,10 @@ class MySearchDelegate extends SearchDelegate {
           child: ListView.builder(
             itemCount: 10,
             itemBuilder: (context, index) {
-              return BestSellerItem();
+              return ListTile(
+                title: Text(suggestions[index]),
+              );
+             // return BestSellerItem(bookModel: ,);
             },
           ),
         ),
