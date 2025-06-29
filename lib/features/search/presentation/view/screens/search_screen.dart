@@ -1,5 +1,4 @@
 import 'package:book_store/core/models/book_model/book_model.dart';
-import 'package:book_store/core/widgets/error_custom_widget.dart';
 import 'package:book_store/features/home/presentation/views/widgets/best_seller_item.dart';
 import 'package:book_store/features/search/presentation/view_model/search_books_cubit/cubit/search_books_cubit.dart';
 import 'package:flutter/material.dart';
