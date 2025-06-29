@@ -14,7 +14,7 @@ class BookTextDetails extends StatelessWidget {
       children: [
         Text(
           bookModel.volumeInfo.title!,
-          style: TextStyles.textStyle20.copyWith(fontWeight: FontWeight.bold),
+          style: TextStyles.textStyle18.copyWith(fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 4),
@@ -24,7 +24,7 @@ class BookTextDetails extends StatelessWidget {
               children: [
                 for (int i = 0; i < bookModel.volumeInfo.authors!.length; i++)
                   Text(
-                    bookModel.volumeInfo.authors![i],
+                    '${bookModel.volumeInfo.authors![i].substring(0, 10)} ,',
                     style: TextStyles.textStyle16.copyWith(
                       fontStyle: FontStyle.italic,
                     ),

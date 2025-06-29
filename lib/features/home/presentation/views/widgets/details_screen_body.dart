@@ -1,4 +1,3 @@
-
 import 'package:book_store/core/utils/text_styles.dart';
 import 'package:book_store/core/widgets/error_custom_widget.dart';
 import 'package:book_store/features/home/data/models/book_model/book_model.dart';
@@ -17,7 +16,9 @@ class DetailsScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var bookModel = GoRouter.of(context).state.extra as BookModel;
-    BlocProvider.of<SimillerBooksCubit>(context).fetchSimmilarBooks(category: bookModel.volumeInfo.categories![0]);
+    BlocProvider.of<SimillerBooksCubit>(
+      context,
+    ).fetchSimmilarBooks(category: bookModel.volumeInfo.categories![0]);
     return Column(
       children: [
         const CustomDetailsHeader(),
@@ -31,19 +32,14 @@ class DetailsScreenBody extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 30.0),
                       child: Column(
                         children: [
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                              vertical:
-                                  MediaQuery.of(context).size.height * 0.01,
-                              horizontal:
-                                  MediaQuery.of(context).size.width * 0.18,
-                            ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            height: MediaQuery.of(context).size.height * 0.27,
                             child: CustomBookImage(bookModel: bookModel),
                           ), // Placeholder image
                           const SizedBox(height: 10),
-                           BookTextDetails(bookModel: bookModel,),
-                          BookDetailsPriceAndPreview(bookModel: bookModel,),
-                          const SizedBox(height: 20),
+                          BookTextDetails(bookModel: bookModel),
+                          BookDetailsPriceAndPreview(bookModel: bookModel),
                         ],
                       ),
                     ),
@@ -60,7 +56,7 @@ class DetailsScreenBody extends StatelessWidget {
                               flex: 1,
                               child: Row(
                                 children: [
-                                  const SizedBox(width: 10),
+                                  const SizedBox(width: 5),
                                   Text(
                                     'You Can Also Read',
                                     style: TextStyles.textStyle14.copyWith(
@@ -72,13 +68,12 @@ class DetailsScreenBody extends StatelessWidget {
                             ),
                             SizedBox(height: 10),
                             Expanded(
-                              flex: 5,
+                              flex: 6,
                               child: BlocBuilder<
                                 SimillerBooksCubit,
                                 SimillerBooksState
                               >(
                                 builder: (context, state) {
-
                                   if (state is SimillerBooksLoaded) {
                                     return ListView.builder(
                                       padding: EdgeInsets.zero,
@@ -93,10 +88,11 @@ class DetailsScreenBody extends StatelessWidget {
                                         ); // Placeholder for book image
                                       },
                                     );
-                                  }else if(state is SimillerBooksError){
-                                     return ErrorCustomWidget(errorMessage: state.message);
-                                  }
-                                   else {
+                                  } else if (state is SimillerBooksError) {
+                                    return ErrorCustomWidget(
+                                      errorMessage: state.message,
+                                    );
+                                  } else {
                                     return Center(
                                       child: CircularProgressIndicator(),
                                     );

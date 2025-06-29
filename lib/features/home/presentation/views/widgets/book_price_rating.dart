@@ -27,7 +27,7 @@ class BookPriceAndRatingItem extends StatelessWidget {
           children: [
             Icon(FontAwesomeIcons.solidStar, color: Colors.yellow, size: 14),
             SizedBox(width: 6.3),
-            Text(bookModel.volumeInfo.maturityRating!,
+            Text('best seller',
                  style: TextStyles.textStyle16),
             SizedBox(width: 5),
             Text(
