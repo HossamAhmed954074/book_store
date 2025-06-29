@@ -1,6 +1,6 @@
 import 'package:book_store/core/router/app_router.dart';
 import 'package:book_store/core/utils/text_styles.dart';
-import 'package:book_store/features/home/data/models/book_model/book_model.dart';
+import 'package:book_store/core/models/book_model/book_model.dart';
 import 'package:book_store/features/home/presentation/views/widgets/book_price_rating.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -68,7 +68,7 @@ class BestSellerItem extends StatelessWidget {
                     ),
                     
                     Text(
-                      '${bookModel.volumeInfo.authors![0]} ',
+                      '${bookModel.volumeInfo.authors?[0] ?? 'No Author'} ',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyles.textStyle14.copyWith(

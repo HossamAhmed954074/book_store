@@ -1,23 +1,23 @@
+import 'package:book_store/core/router/app_router.dart';
 import 'package:book_store/core/utils/text_styles.dart';
 import 'package:book_store/features/home/presentation/view_model/newest_books_cubit/cubit/newest_books_cubit.dart';
 import 'package:book_store/features/home/presentation/views/widgets/best_seller_item.dart';
 import 'package:book_store/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:book_store/features/home/presentation/views/widgets/custom_featured_list_view.dart';
-import 'package:book_store/features/home/presentation/views/widgets/search_delgate.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-   
     return Column(
       children: [
         CustomAppBar(
           onPressdSearch: () {
-            showSearch(context: context, delegate: MySearchDelegate());
+            GoRouter.of(context).push(AppRouter.searchRoute);
           },
         ),
         Expanded(
@@ -46,18 +46,16 @@ class HomeViewBody extends StatelessWidget {
                 builder: (context, state) {
                   if (state is NewestBooksLoaded) {
                     return SliverList(
-                      
                       delegate: SliverChildBuilderDelegate(
                         (context, index) =>
                             BestSellerItem(bookModel: state.books[index]),
-                        childCount: state.books.length, // Adjust the count as needed
+                        childCount:
+                            state.books.length, // Adjust the count as needed
                       ),
                     );
                   } else {
                     return SliverFillRemaining(
-                      child: Center(
-                        child: CircularProgressIndicator(),
-                      ),
+                      child: Center(child: CircularProgressIndicator()),
                     );
                   }
                 },

@@ -1,6 +1,6 @@
 import 'package:book_store/core/utils/text_styles.dart';
 import 'package:book_store/core/widgets/error_custom_widget.dart';
-import 'package:book_store/features/home/data/models/book_model/book_model.dart';
+import 'package:book_store/core/models/book_model/book_model.dart';
 import 'package:book_store/features/home/presentation/view_model/similler_books_cubit/cubit/similler_books_cubit.dart';
 import 'package:book_store/features/home/presentation/views/widgets/books_details_price_preview.dart';
 import 'package:book_store/features/home/presentation/views/widgets/books_details_text.dart';

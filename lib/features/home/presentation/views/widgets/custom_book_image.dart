@@ -1,4 +1,4 @@
-import 'package:book_store/features/home/data/models/book_model/book_model.dart';
+import 'package:book_store/core/models/book_model/book_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 

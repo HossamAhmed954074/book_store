@@ -1,8 +1,7 @@
 import 'package:book_store/core/utils/functions/url_lanching.dart';
 import 'package:book_store/core/utils/text_styles.dart';
-import 'package:book_store/features/home/data/models/book_model/book_model.dart';
+import 'package:book_store/core/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class BookDetailsPriceAndPreview extends StatelessWidget {
   const BookDetailsPriceAndPreview({super.key, required this.bookModel});
