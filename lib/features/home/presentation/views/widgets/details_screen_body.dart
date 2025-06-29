@@ -2,7 +2,7 @@
 import 'package:book_store/core/utils/text_styles.dart';
 import 'package:book_store/core/widgets/error_custom_widget.dart';
 import 'package:book_store/features/home/data/models/book_model/book_model.dart';
-import 'package:book_store/features/home/presentation/view_model/featured_books_cubit/cubit/featured_books_cubit.dart';
+import 'package:book_store/features/home/presentation/view_model/similler_books_cubit/cubit/similler_books_cubit.dart';
 import 'package:book_store/features/home/presentation/views/widgets/books_details_price_preview.dart';
 import 'package:book_store/features/home/presentation/views/widgets/books_details_text.dart';
 import 'package:book_store/features/home/presentation/views/widgets/custom_book_image.dart';
@@ -17,6 +17,7 @@ class DetailsScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var bookModel = GoRouter.of(context).state.extra as BookModel;
+    BlocProvider.of<SimillerBooksCubit>(context).fetchSimmilarBooks(category: bookModel.volumeInfo.categories![0]);
     return Column(
       children: [
         const CustomDetailsHeader(),
@@ -73,12 +74,12 @@ class DetailsScreenBody extends StatelessWidget {
                             Expanded(
                               flex: 5,
                               child: BlocBuilder<
-                                FeaturedBooksCubit,
-                                FeaturedBooksState
+                                SimillerBooksCubit,
+                                SimillerBooksState
                               >(
                                 builder: (context, state) {
 
-                                  if (state is FeaturedBooksLoaded) {
+                                  if (state is SimillerBooksLoaded) {
                                     return ListView.builder(
                                       padding: EdgeInsets.zero,
                                       scrollDirection: Axis.horizontal,
@@ -92,7 +93,7 @@ class DetailsScreenBody extends StatelessWidget {
                                         ); // Placeholder for book image
                                       },
                                     );
-                                  }else if(state is FeaturedBooksError){
+                                  }else if(state is SimillerBooksError){
                                      return ErrorCustomWidget(errorMessage: state.message);
                                   }
                                    else {
