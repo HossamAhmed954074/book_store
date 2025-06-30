@@ -22,9 +22,9 @@ class BookTextDetails extends StatelessWidget {
                 bookModel.volumeInfo.authors!.isNotEmpty
             ? Wrap(
               children: [
-                for (int i = 0; i < bookModel.volumeInfo.authors!.length; i++)
+                
                   Text(
-                    '${bookModel.volumeInfo.authors![i].substring(0, 10)} ,',
+                    '${bookModel.volumeInfo.authors?[0] ?? 'No Author'} ',
                     style: TextStyles.textStyle16.copyWith(
                       fontStyle: FontStyle.italic,
                     ),

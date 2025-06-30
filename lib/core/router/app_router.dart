@@ -20,8 +20,8 @@ abstract class AppRouter {
   static final GoRouter router = GoRouter(
     routes: [
       GoRoute(path: '/', builder: (context, state) => const SplashView()),
-      GoRoute(path: categoryRoute, builder: (context, state) => const CatigoriesScreen()),
-      GoRoute(path: homeRoute, builder: (context, state) => const HomeView()),
+      GoRoute(path: categoryRoute, builder: (context, state) =>  CatigoriesScreen()),
+      GoRoute(path: homeRoute, builder: (context, state) =>  HomeView(category: state.extra as String ,)),
       GoRoute(
         path: searchRoute,
         builder:

@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
-
+  const HomeView({super.key, required this.category});
+  final String category ;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,12 +18,12 @@ class HomeView extends StatelessWidget {
             BlocProvider(
               create:
                   (context) =>
-                      FeaturedBooksCubit(getIt.get<HomeRepoImplement>())..fetchFeaturedBooks(),
+                      FeaturedBooksCubit(getIt.get<HomeRepoImplement>())..fetchFeaturedBooks( category: category),
             ),
             BlocProvider(
               create:
                   (context) =>
-                      NewestBooksCubit(getIt.get<HomeRepoImplement>())..fetchNewestBooks(),
+                      NewestBooksCubit(getIt.get<HomeRepoImplement>())..fetchNewestBooks(category: category),
             ),
           ],
 

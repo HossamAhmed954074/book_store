@@ -18,7 +18,7 @@ class DetailsScreenBody extends StatelessWidget {
     var bookModel = GoRouter.of(context).state.extra as BookModel;
     BlocProvider.of<SimillerBooksCubit>(
       context,
-    ).fetchSimmilarBooks(category: bookModel.volumeInfo.categories![0]);
+    ).fetchSimmilarBooks(category: bookModel.volumeInfo.categories?[0] ?? 'programming');
     return Column(
       children: [
         const CustomDetailsHeader(),
