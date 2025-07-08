@@ -14,23 +14,6 @@ A full-featured book store application that allows users to browse, search, and 
 
 - **Frontend**: [ Flutter]
 
-
-### Steps to Add the `README.md` File to GitHub
-
-#### 1. **Create the README File Locally**:
-   - On your computer, navigate to your project directory.
-   - Create a new file named `README.md` in the root of your project.
-   - Copy and paste the template above into the `README.md` file.
-   - Save the file.
-
-#### 2. **Add the README to Git**:
-   - Open your terminal or command prompt.
-   - Navigate to your project folder:
-     ```bash
-     cd path/to/your/project
-     ```
- 
-
 #### 4. **Check Your GitHub Repository**:
    - After pushing, go to your GitHub repository page, and you should see the `README.md` file displayed.
 
