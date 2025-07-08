@@ -15,12 +15,6 @@ A full-featured book store application that allows users to browse, search, and 
 - **Frontend**: [ Flutter]
 
 
-### Steps to Run the Project Locally
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/HossamAhmed954074/book_store.git
-
 ### Steps to Add the `README.md` File to GitHub
 
 #### 1. **Create the README File Locally**:
@@ -35,25 +29,7 @@ A full-featured book store application that allows users to browse, search, and 
      ```bash
      cd path/to/your/project
      ```
-   - Add the `README.md` file to your Git staging area:
-     ```bash
-     git add README.md
-     ```
-   - Commit the changes:
-     ```bash
-     git commit -m "Add professional README file"
-     ```
-
-#### 3. **Push the README to GitHub**:
-   - If you haven’t pushed your project to GitHub yet, first initialize your Git repository and link it to GitHub:
-     ```bash
-     git init
-     git remote add origin https://github.com/your-username/book_store.git
-     ```
-   - Push the changes to your GitHub repository:
-     ```bash
-     git push origin master
-     ```
+ 
 
 #### 4. **Check Your GitHub Repository**:
    - After pushing, go to your GitHub repository page, and you should see the `README.md` file displayed.
