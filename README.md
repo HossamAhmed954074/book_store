@@ -15,17 +15,6 @@ A full-featured book store application that allows users to browse, search, and 
 - **Frontend**: [ Flutter]
 
 
-## Installation
-
-### Prerequisites
-
-- Ensure you have the following installed:
-  - [Node.js](https://nodejs.org/en/) (for Node.js-based projects)
-  - [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
-  - Or, for mobile apps using Flutter:
-    - [Flutter SDK](https://flutter.dev/docs/get-started/install)
-    - [Dart SDK](https://dart.dev/get-dart)
-
 ### Steps to Run the Project Locally
 
 1. **Clone the repository:**
